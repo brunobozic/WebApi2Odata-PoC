@@ -1,4 +1,4 @@
-﻿namespace WebApi2Odata_PoC.Repository.EF.GenericRepository
+﻿namespace WebApi2OdataPoC.Repository.EF.GenericRepository
 {
 	public interface IGenericRepository<T>
 	{

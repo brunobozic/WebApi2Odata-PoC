@@ -1,13 +1,9 @@
+using System.Data.Entity;
 using WebApi2Odata_PoC.Infrastructure;
 
-namespace WebApi2Odata_PoC.Repository.EF
+namespace WebApi2OdataPoC.Repository.EF
 {
-	using System;
-	using System.Data.Entity;
-	using System.ComponentModel.DataAnnotations.Schema;
-	using System.Linq;
-
-	public partial class Northwind : DbContext, IDbContext
+	public class Northwind : DbContext, IDbContext
 	{
 		public Northwind()
 			: base("name=NorthwindCS")
@@ -42,6 +38,8 @@ namespace WebApi2Odata_PoC.Repository.EF
 		public virtual DbSet<Sales_Totals_by_Amount> Sales_Totals_by_Amount { get; set; }
 		public virtual DbSet<Summary_of_Sales_by_Quarter> Summary_of_Sales_by_Quarter { get; set; }
 		public virtual DbSet<Summary_of_Sales_by_Year> Summary_of_Sales_by_Year { get; set; }
+		public virtual DbSet<Tokens> Tokens { get; set; }
+		public virtual DbSet<User> User { get; set; }
 
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{

@@ -1,12 +1,10 @@
 ﻿using System;
-using WebApi2Odata_PoC.Repository.EF.GenericRepository.DataModel.GenericRepository;
+using WebApi2OdataPoC.Repository.EF.GenericRepository.DataModel.GenericRepository;
 
-namespace WebApi2Odata_PoC.Repository.EF.UnitOfWork
+namespace WebApi2OdataPoC.Repository.EF.UnitOfWork
 {
 	public interface IUnitOfWork : IDisposable
 	{
-		void Save();
-		void Dispose();
 		GenericRepository<Categories> CategoriesRepository { get; set; }
 		GenericRepository<Contacts> ContactsRepository { get; set; }
 		GenericRepository<CustomerDemographics> CustomerDemographicsRepository { get; set; }
@@ -50,6 +48,7 @@ namespace WebApi2Odata_PoC.Repository.EF.UnitOfWork
 		/// </summary>
 		GenericRepository<Shippers> ShippersRepository { get; }
 
-	
+		void Save();
+		void Dispose();
 	}
 }

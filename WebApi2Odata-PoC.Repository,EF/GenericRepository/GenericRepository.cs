@@ -4,7 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace WebApi2Odata_PoC.Repository.EF.GenericRepository
+namespace WebApi2OdataPoC.Repository.EF.GenericRepository
 {
 	namespace DataModel.GenericRepository
 	{

@@ -276,6 +276,9 @@
     <Compile Include="Controllers\AuthenticateController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="DependencyInjection\IoC.cs" />
+    <Compile Include="Filters\ApiAuthenticationFilter.cs" />
+    <Compile Include="Filters\BasicAuthenticationIdentity.cs" />
+    <Compile Include="Filters\GenericBasicAuthenticationFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -408,19 +411,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WebApi2Odata-PoC.Infrastructure\WebApi2Odata-PoC.Infrastructure.csproj">
-      <Project>{FA4145A6-8BED-4061-8530-B80D3D096344}</Project>
-      <Name>WebApi2Odata-PoC.Infrastructure</Name>
-    </ProjectReference>
     <ProjectReference Include="..\WebApi2Odata-PoC.Models\WebApi2Odata-PoC.Models.csproj">
       <Project>{5784675c-378d-4f75-82d7-436a838aaa1d}</Project>
       <Name>WebApi2Odata-PoC.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\WebApi2Odata-PoC.Repository,EF\WebApi2Odata-PoC.Repository.EF.csproj">
-      <Project>{B379B313-D641-4C86-A662-471B64647016}</Project>
+      <Project>{b379b313-d641-4c86-a662-471b64647016}</Project>
       <Name>WebApi2Odata-PoC.Repository.EF</Name>
     </ProjectReference>
     <ProjectReference Include="..\WebApi2Odata-PoC.Services\WebApi2Odata-PoC.Services.csproj">

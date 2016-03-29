@@ -1,21 +1,19 @@
-namespace WebApi2Odata_PoC.Repository.EF
+using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace WebApi2OdataPoC.Repository.EF
 {
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
+	[Table("Summary of Sales by Year")]
+	public class Summary_of_Sales_by_Year
+	{
+		public DateTime? ShippedDate { get; set; }
 
-    [Table("Summary of Sales by Year")]
-    public partial class Summary_of_Sales_by_Year
-    {
-        public DateTime? ShippedDate { get; set; }
+		[Key]
+		[DatabaseGenerated(DatabaseGeneratedOption.None)]
+		public int OrderID { get; set; }
 
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int OrderID { get; set; }
-
-        [Column(TypeName = "money")]
-        public decimal? Subtotal { get; set; }
-    }
+		[Column(TypeName = "money")]
+		public decimal? Subtotal { get; set; }
+	}
 }

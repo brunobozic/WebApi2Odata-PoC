@@ -4,8 +4,9 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WebApi2OdataPoC.Repository.EF;
+using WebApi2OdataPoC.Repository.EF.UnitOfWork.DataModel.UnitOfWork;
 using WebApi2Odata_PoC.Models;
-using WebApi2Odata_PoC.Repository.EF.UnitOfWork.DataModel.UnitOfWork;
 
 namespace WebApi2Odata_PoC.Services
 {
@@ -40,7 +41,7 @@ namespace WebApi2Odata_PoC.Services
 			DateTime issuedOn = DateTime.Now;
 			DateTime expiredOn = DateTime.Now.AddSeconds(
 											  Convert.ToDouble(ConfigurationManager.AppSettings["AuthTokenExpiry"]));
-			var tokendomain = new TokenDto
+			var tokendomain = new Tokens
 			{
 				UserId = userId,
 				AuthToken = token,

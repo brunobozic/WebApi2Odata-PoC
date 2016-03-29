@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WebApi2Odata_PoC.Repository.EF.UnitOfWork.DataModel.UnitOfWork;
+using WebApi2OdataPoC.Repository.EF.UnitOfWork.DataModel.UnitOfWork;
+
 
 namespace WebApi2Odata_PoC.Services
 {

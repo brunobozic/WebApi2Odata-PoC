@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
 using System.IO;
-using WebApi2Odata_PoC.Repository.EF.GenericRepository.DataModel.GenericRepository;
+using WebApi2OdataPoC.Repository.EF.GenericRepository.DataModel.GenericRepository;
 
-namespace WebApi2Odata_PoC.Repository.EF.UnitOfWork
+namespace WebApi2OdataPoC.Repository.EF.UnitOfWork
 {
 
 	#region Using Namespaces...  
@@ -21,7 +21,7 @@ namespace WebApi2Odata_PoC.Repository.EF.UnitOfWork
 		{
 			public UnitOfWork(GenericRepository<Shippers> shippersRepository)
 			{
-			//	_shippersRepository = shippersRepository;
+				//	_shippersRepository = shippersRepository;
 				_context = new Northwind();
 			}
 
@@ -74,7 +74,7 @@ namespace WebApi2Odata_PoC.Repository.EF.UnitOfWork
 			public GenericRepository<Orders> OrdersRepository { get; set; }
 			public GenericRepository<Products> ProductsRepository { get; set; }
 			public GenericRepository<Region> RegionRepository { get; set; }
-		//	private GenericRepository<Shippers> ShippersRepository { get; set; }
+			//	private GenericRepository<Shippers> ShippersRepository { get; set; }
 			public GenericRepository<Suppliers> SuppliersRepository { get; set; }
 			public GenericRepository<sysdiagrams> SysdiagramsRepository { get; set; }
 			public GenericRepository<Territories> TerritoriesRepository { get; set; }
@@ -93,6 +93,8 @@ namespace WebApi2Odata_PoC.Repository.EF.UnitOfWork
 			public GenericRepository<Sales_Totals_by_Amount> SalesTotalsByAmountRepository { get; set; }
 			public GenericRepository<Summary_of_Sales_by_Quarter> SummaryOfSalesByQuarterRepository { get; set; }
 			public GenericRepository<Summary_of_Sales_by_Year> SummaryOfSalesByYearRepository { get; set; }
+			public GenericRepository<Tokens> TokenRepository { get; set; }
+			public GenericRepository<User> UserRepository { get; set; }
 
 			#endregion
 
@@ -147,6 +149,8 @@ namespace WebApi2Odata_PoC.Repository.EF.UnitOfWork
 			private GenericRepository<Products> _productRepository;
 			private GenericRepository<Customers> _customerRepository;
 			private GenericRepository<Shippers> _shippersnRepository;
+			private GenericRepository<Tokens> _tokenRepository;
+			private GenericRepository<User> _userRepository;
 
 			#endregion
 

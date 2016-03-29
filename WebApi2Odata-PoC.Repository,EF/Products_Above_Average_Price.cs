@@ -1,19 +1,16 @@
-namespace WebApi2Odata_PoC.Repository.EF
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace WebApi2OdataPoC.Repository.EF
 {
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
+	[Table("Products Above Average Price")]
+	public class Products_Above_Average_Price
+	{
+		[Key]
+		[StringLength(40)]
+		public string ProductName { get; set; }
 
-    [Table("Products Above Average Price")]
-    public partial class Products_Above_Average_Price
-    {
-        [Key]
-        [StringLength(40)]
-        public string ProductName { get; set; }
-
-        [Column(TypeName = "money")]
-        public decimal? UnitPrice { get; set; }
-    }
+		[Column(TypeName = "money")]
+		public decimal? UnitPrice { get; set; }
+	}
 }

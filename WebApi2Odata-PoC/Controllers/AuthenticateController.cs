@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
+﻿using System.Configuration;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using AttributeRouting.Web.Http;
+using AttributeRouting.Web.Http;
+using WebApi2Odata_PoC.Filters;
 using WebApi2Odata_PoC.Services;
 
 namespace WebApi2Odata_PoC.Controllers

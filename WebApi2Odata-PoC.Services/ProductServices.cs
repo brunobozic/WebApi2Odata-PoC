@@ -2,10 +2,10 @@
 using System.Linq;
 using System.Transactions;
 using AutoMapper;
+using WebApi2OdataPoC.Repository.EF;
+using WebApi2OdataPoC.Repository.EF.UnitOfWork;
+using WebApi2OdataPoC.Repository.EF.UnitOfWork.DataModel.UnitOfWork;
 using WebApi2Odata_PoC.Models;
-using WebApi2Odata_PoC.Repository.EF;
-using WebApi2Odata_PoC.Repository.EF.UnitOfWork;
-using WebApi2Odata_PoC.Repository.EF.UnitOfWork.DataModel.UnitOfWork;
 
 namespace WebApi2Odata_PoC.Services
 {

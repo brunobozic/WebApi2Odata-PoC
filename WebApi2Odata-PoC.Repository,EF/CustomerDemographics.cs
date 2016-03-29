@@ -1,27 +1,26 @@
-namespace WebApi2Odata_PoC.Repository.EF
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.CodeAnalysis;
+
+namespace WebApi2OdataPoC.Repository.EF
 {
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
+	public class CustomerDemographics
+	{
+		[SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+		public CustomerDemographics()
+		{
+			Customers = new HashSet<Customers>();
+		}
 
-    public partial class CustomerDemographics
-    {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public CustomerDemographics()
-        {
-            Customers = new HashSet<Customers>();
-        }
+		[Key]
+		[StringLength(10)]
+		public string CustomerTypeID { get; set; }
 
-        [Key]
-        [StringLength(10)]
-        public string CustomerTypeID { get; set; }
+		[Column(TypeName = "ntext")]
+		public string CustomerDesc { get; set; }
 
-        [Column(TypeName = "ntext")]
-        public string CustomerDesc { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Customers> Customers { get; set; }
-    }
+		[SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+		public virtual ICollection<Customers> Customers { get; set; }
+	}
 }

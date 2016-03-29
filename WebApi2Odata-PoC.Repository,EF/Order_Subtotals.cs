@@ -1,19 +1,16 @@
-namespace WebApi2Odata_PoC.Repository.EF
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace WebApi2OdataPoC.Repository.EF
 {
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
+	[Table("Order Subtotals")]
+	public class Order_Subtotals
+	{
+		[Key]
+		[DatabaseGenerated(DatabaseGeneratedOption.None)]
+		public int OrderID { get; set; }
 
-    [Table("Order Subtotals")]
-    public partial class Order_Subtotals
-    {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int OrderID { get; set; }
-
-        [Column(TypeName = "money")]
-        public decimal? Subtotal { get; set; }
-    }
+		[Column(TypeName = "money")]
+		public decimal? Subtotal { get; set; }
+	}
 }
