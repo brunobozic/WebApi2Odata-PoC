@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi2Odata-PoC", "WebApi2Odata-PoC\WebApi2Odata-PoC.csproj", "{5319223C-918F-414D-9C1C-25D0E8018EE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi2Odata-PoC.Tests", "WebApi2Odata-PoC.Tests\WebApi2Odata-PoC.Tests.csproj", "{9D5B961E-71A3-4010-88FB-BC3DBB5DD777}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi2Odata-PoC.Repository.EF", "WebApi2Odata-PoC.Repository,EF\WebApi2Odata-PoC.Repository.EF.csproj", "{B379B313-D641-4C86-A662-471B64647016}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi2Odata-PoC.Models", "WebApi2Odata-PoC.Models\WebApi2Odata-PoC.Models.csproj", "{5784675C-378D-4F75-82D7-436A838AAA1D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi2Odata-PoC.Infrastructure", "WebApi2Odata-PoC.Infrastructure\WebApi2Odata-PoC.Infrastructure.csproj", "{FA4145A6-8BED-4061-8530-B80D3D096344}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi2Odata-PoC.Services", "WebApi2Odata-PoC.Services\WebApi2Odata-PoC.Services.csproj", "{69562233-1D7B-43C1-9D81-40485ABEAC57}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5319223C-918F-414D-9C1C-25D0E8018EE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5319223C-918F-414D-9C1C-25D0E8018EE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5319223C-918F-414D-9C1C-25D0E8018EE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5319223C-918F-414D-9C1C-25D0E8018EE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D5B961E-71A3-4010-88FB-BC3DBB5DD777}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D5B961E-71A3-4010-88FB-BC3DBB5DD777}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D5B961E-71A3-4010-88FB-BC3DBB5DD777}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D5B961E-71A3-4010-88FB-BC3DBB5DD777}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B379B313-D641-4C86-A662-471B64647016}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B379B313-D641-4C86-A662-471B64647016}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B379B313-D641-4C86-A662-471B64647016}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B379B313-D641-4C86-A662-471B64647016}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5784675C-378D-4F75-82D7-436A838AAA1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5784675C-378D-4F75-82D7-436A838AAA1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5784675C-378D-4F75-82D7-436A838AAA1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5784675C-378D-4F75-82D7-436A838AAA1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA4145A6-8BED-4061-8530-B80D3D096344}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA4145A6-8BED-4061-8530-B80D3D096344}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA4145A6-8BED-4061-8530-B80D3D096344}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA4145A6-8BED-4061-8530-B80D3D096344}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69562233-1D7B-43C1-9D81-40485ABEAC57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69562233-1D7B-43C1-9D81-40485ABEAC57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69562233-1D7B-43C1-9D81-40485ABEAC57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69562233-1D7B-43C1-9D81-40485ABEAC57}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
