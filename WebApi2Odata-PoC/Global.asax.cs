@@ -37,6 +37,8 @@ namespace WebApi2Odata_PoC
 
 			//Add CORS Handler  
 			GlobalConfiguration.Configuration.MessageHandlers.Add(new CorsHandler());
+
+			GlobalConfiguration.Configuration.EnsureInitialized();
 		}
 	}
 }
