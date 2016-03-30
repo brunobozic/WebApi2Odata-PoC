@@ -1,4 +1,6 @@
+using System;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using WebApi2Odata_PoC.Infrastructure;
 
 namespace WebApi2OdataPoC.Repository.EF
@@ -8,7 +10,38 @@ namespace WebApi2OdataPoC.Repository.EF
 		public Northwind()
 			: base("name=NorthwindCS")
 		{
+			InstanceId = Guid.NewGuid();
+			Configuration.ProxyCreationEnabled = false;
+			Configuration.LazyLoadingEnabled = false;
+			var ensureDllIsCopied = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
 		}
+		public new IDbSet<TEntity> Set<TEntity>() where TEntity : class
+		{
+			return base.Set<TEntity>();
+		}
+
+		public Guid InstanceId { get; set; }
+		public Database GetDatabase()
+		{
+			return Database;
+		}
+
+		/// <summary>
+		/// </summary>
+		/// <returns></returns>
+		public DbChangeTracker GetChangeTracker()
+		{
+			return ChangeTracker;
+		}
+
+		/// <summary>
+		/// </summary>
+		/// <returns></returns>
+		public DbContextConfiguration GetConfiguration()
+		{
+			return Configuration;
+		}
+
 
 		public virtual DbSet<Categories> Categories { get; set; }
 		public virtual DbSet<Contacts> Contacts { get; set; }
@@ -109,6 +142,11 @@ namespace WebApi2OdataPoC.Repository.EF
 			modelBuilder.Entity<Territories>()
 				.Property(e => e.TerritoryDescription)
 				.IsFixedLength();
+
+			modelBuilder.Entity<User>()
+			  .HasMany(e => e.Tokens)
+			  .WithRequired(e => e.User)
+			  .WillCascadeOnDelete(false);
 
 			modelBuilder.Entity<Alphabetical_list_of_products>()
 				.Property(e => e.UnitPrice)

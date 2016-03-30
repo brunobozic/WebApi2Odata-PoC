@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
+using WebApi2Odata_PoC.Infrastructure;
 
 namespace WebApi2OdataPoC.Repository.EF.GenericRepository
 {
@@ -20,7 +21,7 @@ namespace WebApi2OdataPoC.Repository.EF.GenericRepository
 			///     Public Constructor,initializes privately declared local variables.
 			/// </summary>
 			/// <param name="context"></param>
-			public GenericRepository(Northwind context)
+			public GenericRepository(IDbContext context)
 			{
 				Context = context;
 				DbSet = context.Set<TEntity>();
@@ -30,8 +31,8 @@ namespace WebApi2OdataPoC.Repository.EF.GenericRepository
 
 			#region Private member variables...  
 
-			internal Northwind Context;
-			internal DbSet<TEntity> DbSet;
+			internal IDbContext Context;
+			internal IDbSet<TEntity> DbSet;
 
 			#endregion
 

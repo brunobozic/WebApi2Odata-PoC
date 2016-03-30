@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -12,7 +10,7 @@ using WebApi2Odata_PoC.DependencyInjection;
 
 namespace WebApi2Odata_PoC
 {
-	public class WebApiApplication : System.Web.HttpApplication
+	public class WebApiApplication : HttpApplication
 	{
 		protected void Application_Start()
 		{
@@ -23,7 +21,7 @@ namespace WebApi2Odata_PoC
 			RouteConfig.RegisterRoutes(RouteTable.Routes);
 			BundleConfig.RegisterBundles(BundleTable.Bundles);
 			//Initialise Bootstrapper  
-		var myC =	IoC.GetContainer();
+			var myC = IoC.GetContainer();
 			var Igot = myC.WhatDoIHave();
 
 			//Define Formatters  

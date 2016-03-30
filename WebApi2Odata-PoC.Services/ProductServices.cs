@@ -16,6 +16,16 @@ namespace WebApi2Odata_PoC.Services
 		/// <summary>
 		///     Public constructor.
 		/// </summary>
+		public ProductServices(IUnitOfWork unitOfWork)
+		{
+			if (unitOfWork == null)
+			{
+				_unitOfWork = new UnitOfWork();
+			}
+
+			_unitOfWork = unitOfWork;
+		}
+
 		public ProductServices()
 		{
 			_unitOfWork = new UnitOfWork();

@@ -4,6 +4,7 @@ using System.Data.Entity.Validation;
 using System.Diagnostics;
 using System.IO;
 using WebApi2OdataPoC.Repository.EF.GenericRepository.DataModel.GenericRepository;
+using WebApi2Odata_PoC.Infrastructure;
 
 namespace WebApi2OdataPoC.Repository.EF.UnitOfWork
 {
@@ -19,15 +20,22 @@ namespace WebApi2OdataPoC.Repository.EF.UnitOfWork
 		/// </summary>
 		public class UnitOfWork : IUnitOfWork
 		{
-			public UnitOfWork(GenericRepository<Shippers> shippersRepository)
+			public UnitOfWork(IDbContext context)
 			{
-				//	_shippersRepository = shippersRepository;
-				_context = new Northwind();
+				if (context == null)
+				{
+					_context = new Northwind();
+				}
+				_context = context;
 			}
 
 			public UnitOfWork()
 			{
+				_context = new Northwind();
 			}
+
+
+
 
 			#region Public member methods...  
 
@@ -63,7 +71,7 @@ namespace WebApi2OdataPoC.Repository.EF.UnitOfWork
 
 			#region Private member variables...  
 
-			private readonly Northwind _context;
+			private readonly IDbContext _context;
 
 			public GenericRepository<Categories> CategoriesRepository { get; set; }
 			public GenericRepository<Contacts> ContactsRepository { get; set; }
