@@ -1,6 +1,8 @@
 ﻿using System.Web.Http;
 using Microsoft.Owin.Security.OAuth;
-
+using WebApi2OdataPoC.Repository.EF;
+using System.Web.OData.Builder;
+using System.Web.OData.Extensions;
 namespace WebApi2Odata_PoC
 {
 	public static class WebApiConfig
@@ -14,7 +16,12 @@ namespace WebApi2Odata_PoC
 
 			// Web API routes
 			config.MapHttpAttributeRoutes();
-
+			ODataModelBuilder builder = new ODataConventionModelBuilder();
+			builder.EntitySet<Products>("Products");
+			config.MapODataServiceRoute(
+				routeName: "ODataRoute",
+				routePrefix: null,
+				model: builder.GetEdmModel());
 			config.Routes.MapHttpRoute("DefaultApi", "api/{controller}/{id}", new {id = RouteParameter.Optional}
 				);
 		}

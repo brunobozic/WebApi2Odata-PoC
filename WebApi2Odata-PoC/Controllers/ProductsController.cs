@@ -1,27 +1,134 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.OData;
+using AttributeRouting.Web.Http;
+using WebApi2OdataPoC.Repository.EF;
 using WebApi2Odata_PoC.Models;
 using WebApi2Odata_PoC.Services;
-using AttributeRouting;
-using AttributeRouting.Web.Http;
+
 namespace WebApi2Odata_PoC.Controllers
 {
-    public class ProductsController : ApiController
+	public class ProductController : ODataController
 	{
+		private readonly Northwind db = new Northwind();
+
+		private bool ProductExists(int key)
+		{
+			return db.Products.Any(p => p.ProductID == key);
+		}
 
 
+		[EnableQuery]
+		public IQueryable<Products> Get()
+		{
+			return db.Products;
+		}
 
+		[EnableQuery]
+		public SingleResult<Products> Get([FromODataUri] int key)
+		{
+			var result = db.Products.Where(p => p.ProductID == key);
+			return SingleResult.Create(result);
+		}
+
+		public async Task<IHttpActionResult> Post(Products product)
+		{
+			if (!ModelState.IsValid)
+			{
+				return BadRequest(ModelState);
+			}
+			db.Products.Add(product);
+			await db.SaveChangesAsync();
+			return Created(product);
+		}
+
+		public async Task<IHttpActionResult> Patch([FromODataUri] int key, Delta<Products> product)
+		{
+			if (!ModelState.IsValid)
+			{
+				return BadRequest(ModelState);
+			}
+			var entity = await db.Products.FindAsync(key);
+			if (entity == null)
+			{
+				return NotFound();
+			}
+			product.Patch(entity);
+			try
+			{
+				await db.SaveChangesAsync();
+			}
+			catch (DbUpdateConcurrencyException)
+			{
+				if (!ProductExists(key))
+				{
+					return NotFound();
+				}
+				throw;
+			}
+			return Updated(entity);
+		}
+
+		public async Task<IHttpActionResult> Put([FromODataUri] int key, Products update)
+		{
+			if (!ModelState.IsValid)
+			{
+				return BadRequest(ModelState);
+			}
+			if (key != update.ProductID)
+			{
+				return BadRequest();
+			}
+			db.Entry(update).State = EntityState.Modified;
+			try
+			{
+				await db.SaveChangesAsync();
+			}
+			catch (DbUpdateConcurrencyException)
+			{
+				if (!ProductExists(key))
+				{
+					return NotFound();
+				}
+				throw;
+			}
+			return Updated(update);
+		}
+
+		public async Task<IHttpActionResult> Delete([FromODataUri] int key)
+		{
+			var product = await db.Products.FindAsync(key);
+			if (product == null)
+			{
+				return NotFound();
+			}
+			db.Products.Remove(product);
+			await db.SaveChangesAsync();
+			return StatusCode(HttpStatusCode.NoContent);
+		}
+
+		protected override void Dispose(bool disposing)
+		{
+			db.Dispose();
+			base.Dispose(disposing);
+		}
+	}
+
+	public class ProductsController : ApiController
+	{
 		private readonly IProductServices _productServices;
 
 		#region Public Constructor  
 
-		/// <summary>  
-		/// Public constructor to initialize product service instance  
-		/// </summary>  
+		/// <summary>
+		///     Public constructor to initialize product service instance
+		/// </summary>
 		public ProductsController()
 		{
 			_productServices = new ProductServices();
@@ -67,7 +174,7 @@ namespace WebApi2Odata_PoC.Controllers
 		// PUT api/product/5  
 		[PUT("Update/productid/{id}")]
 		[PUT("Modify/productid/{id}")]
-		public bool Put(int id, [FromBody]ProductsDto productEntity)
+		public bool Put(int id, [FromBody] ProductsDto productEntity)
 		{
 			if (id > 0)
 			{

@@ -6,7 +6,6 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using Newtonsoft.Json;
 using WebApi2Odata_PoC.App_Start;
-using WebApi2Odata_PoC.DependencyInjection;
 
 namespace WebApi2Odata_PoC
 {
@@ -20,9 +19,7 @@ namespace WebApi2Odata_PoC
 			FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
 			RouteConfig.RegisterRoutes(RouteTable.Routes);
 			BundleConfig.RegisterBundles(BundleTable.Bundles);
-			//Initialise Bootstrapper  
-			var myC = IoC.GetContainer();
-			var Igot = myC.WhatDoIHave();
+		
 
 			//Define Formatters  
 			var formatters = GlobalConfiguration.Configuration.Formatters;
