@@ -20,7 +20,7 @@ namespace WebApi2Odata_PoC
 			builder.EntitySet<Products>("Products");
 			config.MapODataServiceRoute(
 				routeName: "ODataRoute",
-				routePrefix: null,
+				routePrefix: "OData",
 				model: builder.GetEdmModel());
 			config.Routes.MapHttpRoute("DefaultApi", "api/{controller}/{id}", new {id = RouteParameter.Optional}
 				);
